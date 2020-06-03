@@ -97,7 +97,7 @@ class GroupController extends Controller
         'photo'=>$group->photo];
         }
         else{
-          return ['response'=>'this group id not exist'];
+          return ['response'=>'This group id not exist'];
         }
       }
       //---------------------this function to remove member from group
