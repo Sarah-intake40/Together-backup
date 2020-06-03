@@ -68,7 +68,7 @@ Route::get('/reject/{requestId}','Api\UserRequestController@reject')->middleware
 //------------------------------- this route to view groups of certain user
 Route::get('/home/{id}','Api\UserController@home')->middleware('auth:sanctum');
 //------------------------------ this route to update only interests
-Route::post('/updateInterests/{id}','Api\UserController@updateInterests')->middle('auth:sanctum');
+Route::post('/updateInterests/{id}','Api\UserController@updateInterests')->middleware('auth:sanctum');
 //----------------------this route to delete certain task
 Route::get('/deleteTask/{id}','Api\TaskController@deleteTask')->middleware('auth:sanctum');
 //----------------------- this route to update certain task
@@ -86,6 +86,8 @@ Route::post('/changePosition','Api\TaskController@changePosition')->middleware('
 Route::post('/dragADrop','Api\TaskController@dragADrop');
 //------------------------ this route to logout
 Route::get('/logout/{id}','Api\UserController@logout');
+//--------------------- this to know status of certain user according to certain group
+Route::get('/status/{groupId}/{id}','Api\UserController@getStatus');
 
 // //----------------------sanctum generate token for user 
 // Route::post('/sanctum/token', function (Request $request) {

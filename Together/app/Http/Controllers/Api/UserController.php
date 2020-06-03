@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 use App\User;
+use App\Group;
 use Laravel\Sanctum\PersonalAccessToken;
 use App\Interest;
 use Illuminate\Support\Facades\Hash;
@@ -187,5 +188,30 @@ class UserController extends Controller
               return ['response'=>'logout successfully'];
            }
 
+       }
+       //----------------------------- this to return status of user(one of group , not in send request)
+       public function getStatus ($groupId,$id){
+           $group=Group::find($groupId);
+           $members=$group->users;
+          // return $members;
+           foreach ($members as $member){
+               if($member->id==$id){
+                   $status ='Member of this group';
+               }
+               else {
+                   $status = 'Not member';
+               }
+           }
+           if($status){
+               $case=$status;
+               $status=' ';
+           }
+           $requests=$group->requests;
+           foreach($requests as $request){
+               if($request->user_id==$id){
+                   $status ='This user waiting for admin of group to accept his request of join';
+               }
+           }
+           return ['response'=>$case .' and '.$status];
        }
 }
