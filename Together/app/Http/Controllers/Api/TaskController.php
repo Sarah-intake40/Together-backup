@@ -58,11 +58,14 @@ class TaskController extends Controller
         if($group){
             $tasks=Task::select('*')->where('group_id',$group->id)->where('status','to do')->get();
             $tasksList=array();
-            
+            $position=array();
             foreach($tasks as $task){
-                $taskEle=['id'=>$task->id,'name'=>$task->name,'description'=>$task->description];
+                $taskEle=['id'=>$task->id,'name'=>$task->name,'description'=>$task->description,'position'=>$task->position];
                array_push($tasksList,$taskEle);
+               array_push($position,$task->position);
             }
+            // ksort($tasksList);
+            array_multisort($position, SORT_ASC, $tasksList);
             return $tasksList;
         }
         return ['response'=>'This group not exist'];
@@ -73,11 +76,13 @@ class TaskController extends Controller
         if($group){
             $tasks=Task::select('*')->where('group_id',$group->id)->where('status','in-progress')->get();
             $tasksList=array();
-            
+            $position=array();
             foreach($tasks as $task){
-                $taskEle=['id'=>$task->id,'name'=>$task->name,'description'=>$task->description];
+                $taskEle=['id'=>$task->id,'name'=>$task->name,'description'=>$task->description,'position'=>$task->position];
                array_push($tasksList,$taskEle);
+               array_push($position,$task->position);
             }
+            array_multisort($position, SORT_ASC, $tasksList);
             return $tasksList;
         }
         return ['response'=>'this group not exist'];
@@ -88,11 +93,13 @@ class TaskController extends Controller
         if($group){
             $tasks=Task::select('*')->where('group_id',$group->id)->where('status','done')->get();
             $tasksList=array();
-            
+            $position=array();
             foreach($tasks as $task){
                 $taskEle=['id'=>$task->id,'name'=>$task->name,'description'=>$task->description];
                array_push($tasksList,$taskEle);
+               array_push($position,$task->position);
             }
+            array_multisort($position, SORT_ASC, $tasksList);
             return $tasksList;
         }
         return ['response'=>'this group not exist'];
