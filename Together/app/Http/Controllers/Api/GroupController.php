@@ -126,7 +126,7 @@ class GroupController extends Controller
         $group=Group::find($groupid);
         $user=User::find($id);
         $group->users()->detach($user);
-        $group->current_number_of_memebers=$group->current_number_of_members-1;
+        $group->current_number_of_members=$group->current_number_of_members-1;
         $group->save();
         return ['response'=>'member leaved successfully'];
       }
