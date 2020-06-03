@@ -112,4 +112,18 @@ class TaskController extends Controller
        $task->delete();
        return ['response'=>'This task deleted successfully'];
    }
+   //----------------------- this to change position
+   public function changePosition($taskId,$position){
+    $task=Task::find($taskId);
+    if($task){
+        $task->position=$position;
+        $task->save();
+          return ['response'=>'Position changed successfully'];
+    }
+        return ['response'=>'This task didn\'t move correctly'];
+ }
+ //--------------------this function to update position
+ public function dragADrop(Request $request){
+     var_dump($request);
+ }
 }
