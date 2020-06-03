@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 use App\User;
+use Laravel\Sanctum\PersonalAccessToken;
 use App\Interest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Laravel\Sanctum\HasApiTokens;
 use App\Http\Controllers\Controller;
@@ -173,8 +175,17 @@ class UserController extends Controller
         return ['response'=>'This user is not exist'];  
       }
        //---------------------------- this function used to logout
-       public function logout(Request $request){
-         
-        
+       public function logout($id){
+           $user=User::find($id);
+           if($user){
+              //Auth::logout();
+              $tokens=PersonalAccessToken::where('name',$user->email)->get();
+              foreach($tokens as $token){
+                $token->delete();
+              }
+              
+              return ['response'=>'logout successfully'];
+           }
+
        }
 }

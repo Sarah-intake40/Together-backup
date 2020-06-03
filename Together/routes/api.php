@@ -75,7 +75,8 @@ Route::get('/deleteTask/{id}','Api\TaskController@deleteTask');
 Route::post('/updateTask/{id}','Api\TaskController@updateTask');
 //------------------------ this route to move task to do list
 Route::get('/do/{id}','Api\TaskController@moveTodo');
-
+//------------------------ this route to logout
+Route::get('/logout/{id}','Api\UserController@logout');
 
 // //----------------------sanctum generate token for user 
 // Route::post('/sanctum/token', function (Request $request) {
