@@ -172,4 +172,9 @@ class UserController extends Controller
         }
         return ['response'=>'This user is not exist'];  
       }
+       //---------------------------- this function used to logout
+       public function logout(Request $request){
+         
+        
+       }
 }
