@@ -63,7 +63,7 @@ class UserController extends Controller
         if($user){
        // return ['response'=>'Signed up Successfully'];
           $response=$this->signin($request);
-          return ['response'=>$response];
+          return $response;
          }
 
         else {
