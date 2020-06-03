@@ -70,17 +70,20 @@ Route::get('/home/{id}','Api\UserController@home')->middleware('auth:sanctum');
 //------------------------------ this route to update only interests
 Route::post('/updateInterests/{id}','Api\UserController@updateInterests')->middle('auth:sanctum');
 //----------------------this route to delete certain task
-Route::get('/deleteTask/{id}','Api\TaskController@deleteTask')->middle('auth:sanctum');
+Route::get('/deleteTask/{id}','Api\TaskController@deleteTask')->middleware('auth:sanctum');
 //----------------------- this route to update certain task
-Route::post('/updateTask/{id}','Api\TaskController@updateTask')->middle('auth:sanctum');
+Route::post('/updateTask/{id}','Api\TaskController@updateTask')->middleware('auth:sanctum');
 //------------------------ this route to move task to do list
-Route::get('/do/{id}','Api\TaskController@moveTodo')->middle('auth:sanctum');
+Route::get('/do/{id}','Api\TaskController@moveTodo')->middleware('auth:sanctum');
 //-------------------this to  changePosition tasks
-Route::post('/changePosition','Api\TaskController@changePosition')->middle('auth:sanctum');
+Route::post('/changePosition','Api\TaskController@changePosition')->middleware('auth:sanctum');
 //-------------------this to  changeProgressPosition tasks
 //Route::get('/changeProgressPosition/{taskId}/{position}','Api\TaskController@changeProgressPosition');
 //-------------------this to  changeDonePosition tasks
 //Route::get('/changeDonePosition/{taskId}/{position}','Api\TaskController@changeDonePosition');
+
+//--------------------- this to dragADrop
+Route::post('/dragADrop','Api\TaskController@dragADrop');
 //------------------------ this route to logout
 Route::get('/logout/{id}','Api\UserController@logout');
 
