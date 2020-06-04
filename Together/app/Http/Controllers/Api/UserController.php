@@ -122,6 +122,7 @@ class UserController extends Controller
         'name'=>$user->name,
         'email'=>$user->email,
         'gender'=>$user->gender,
+        'photo'=>$user->photo,
         'password'=>decrypt($user->password),
         'BirthDate'=>$user->BirthDate,
         'address'=>$user->address,
