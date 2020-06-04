@@ -130,7 +130,24 @@ class TaskController extends Controller
         return ['response'=>'This task didn\'t move correctly'];
  }
  //--------------------this function to update position
- public function dragADrop(Request $request){
-     var_dump($request);
+ public function dragAdrop(Request $request){
+     $tasks=$request->tasks;
+     foreach($tasks as $task){
+         $updatedTask=Task::find($task["id"]);
+         $updatedTask->position=$task["position"];
+         $updatedTask->save();
+     }
+     return ['response'=>'All tasks moved successfully'];
  }
+ //---------------------- this to calcutate progress of certain group
+ public function getpercentage($groupId){
+     $group=Group::find($groupId);
+     if($group){
+         $noOfDoneTasks=count(Task::select('*')->where('group_id',$group->id)->where('status','done')->get());
+         $noOfAllTasks=count($group->tasks);
+         return ['response'=>($noOfDoneTasks/$noOfAllTasks)*100];
+     }
+     return ['response'=>'this group doesnt exist'];
+ }
+ 
 }

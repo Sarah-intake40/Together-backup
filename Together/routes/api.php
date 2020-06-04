@@ -76,19 +76,20 @@ Route::post('/updateTask/{id}','Api\TaskController@updateTask')->middleware('aut
 //------------------------ this route to move task to do list
 Route::get('/do/{id}','Api\TaskController@moveTodo')->middleware('auth:sanctum');
 //-------------------this to  changePosition tasks
-Route::post('/changePosition','Api\TaskController@changePosition')->middleware('auth:sanctum');
+//Route::post('/changePosition','Api\TaskController@changePosition')->middleware('auth:sanctum');
 //-------------------this to  changeProgressPosition tasks
 //Route::get('/changeProgressPosition/{taskId}/{position}','Api\TaskController@changeProgressPosition');
 //-------------------this to  changeDonePosition tasks
 //Route::get('/changeDonePosition/{taskId}/{position}','Api\TaskController@changeDonePosition');
 
 //--------------------- this to dragADrop
-Route::post('/dragADrop','Api\TaskController@dragADrop');
+Route::post('/dragAdrop','Api\TaskController@dragAdrop');
 //------------------------ this route to logout
 Route::get('/logout/{id}','Api\UserController@logout');
 //--------------------- this to know status of certain user according to certain group
 Route::get('/status/{groupId}/{id}','Api\UserController@getStatus');
-
+//----------------------------------- this to get percentage
+Route::get('/getpercentage/{groupId}','Api\TaskController@getpercentage');
 // //----------------------sanctum generate token for user 
 // Route::post('/sanctum/token', function (Request $request) {
 //     $request->validate([
