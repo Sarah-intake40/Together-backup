@@ -29,7 +29,7 @@ class TaskController extends Controller
         $task=Task::find($id);
         if($task){
             $task->update(array('status'=>'in-progress'));
-            return ['response'=>'sucess'];
+            return ['response'=>'Moved successfully'];
         }
         return ['response'=>'This task not exist'];
     }
@@ -48,7 +48,7 @@ class TaskController extends Controller
         $task=Task::find($id);
         if($task){
             $task->update(array('status'=>'done'));
-            return ['response'=>'sucess'];
+            return ['response'=>'Moved successfully'];
         }
         return ['response'=>'This task not exist'];
     }
