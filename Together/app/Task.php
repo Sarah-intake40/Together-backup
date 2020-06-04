@@ -8,7 +8,7 @@ class Task extends Model
 {   
     //--------------- fillable fields
     protected $fillable = [
-        'name', 'description' , 'status','group_id'
+        'name', 'description' , 'status','group_id', 'position'
     ];
     //----------this represent relation onee to many btn group and task
     public function group(){

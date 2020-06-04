@@ -14,7 +14,7 @@ class TaskController extends Controller
         $group=Group::find($request->group_id);
         $adminMember=User::find($request->current_user_id);
         if($group->admin_id==$adminMember->id){
-        $task=Task::create($request->except('current_user_id'));
+        $task=Task::create($request->only(['name'=>$request->name,'description'=>$request->description,'user_id'->$request->user_id,'group_id'=>$request->group_id,'position'=>$request->position,'status']));
         if($task){
             return ['response'=>'Task added Successfully'];
         }
