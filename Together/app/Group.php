@@ -8,7 +8,7 @@ class Group extends Model
 {    
     //---------------------- this to listt fill feilds of  group
     protected $fillable = [
-        'name', 'description' , 'max_member_number', 'duration', 'current_number_of_members', 'status','level' , 'interest_id', 'other'
+        'name', 'description' , 'max_member_number', 'duration', 'current_number_of_members', 'status','level' , 'interest_id', 'other','admin_id','photo'
     ];
     //------------ this represent many to many relationship btn groups and users
     public function users(){

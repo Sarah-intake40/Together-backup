@@ -144,6 +144,7 @@ class UserController extends Controller
             $user->BirthDate =$request->BirthDate;
             $user->gender = $request->gender;
             $user->address=$request->address;
+            $user->photo=$request->photo;
             $user->update();
             return ['response'=>'Updated Successfully'];
     }
