@@ -17,6 +17,7 @@ class CreateMessagesTable extends Migration
             $table->id();
             $table->longText('content');
             $table->foreignId('user_id');
+            
             $table->foreignId('group_id');
             $table->timestamps();
         });

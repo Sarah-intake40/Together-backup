@@ -16,6 +16,7 @@ class AddClomnsToUsers extends Migration
         Schema::table('users', function (Blueprint $table) {
             //
             $table->integer('age');
+            
             $table->string('gender');
             $table->string('address')->nullable();
             $table->string('photo')->nullable();

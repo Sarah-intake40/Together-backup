@@ -16,6 +16,7 @@ class AddAdminColumnToGroups extends Migration
         Schema::table('groups', function (Blueprint $table) {
             //
             $table->integer('admin_id');
+            
         });
     }
 

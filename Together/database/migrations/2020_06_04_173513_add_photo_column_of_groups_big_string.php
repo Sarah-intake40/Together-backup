@@ -16,6 +16,7 @@ class AddPhotoColumnOfGroupsBigString extends Migration
         //
         Schema::table('groups', function (Blueprint $table) {
             $table->longText('photo')->nullable(); 
+            
          });
     }
 

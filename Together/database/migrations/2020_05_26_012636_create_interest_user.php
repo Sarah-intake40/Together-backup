@@ -16,6 +16,7 @@ class CreateInterestUser extends Migration
         Schema::create('interest_user', function (Blueprint $table) {
             $table->increments('id');
             $table->foreignId('user_id');
+            
             $table->foreignId('interest_id');
             $table->timestamps();
         });

@@ -16,6 +16,7 @@ class AddBirthDateToUsers extends Migration
         Schema::table('users', function (Blueprint $table) {
             //
             $table->String('BirthDate')->nullable();
+            
         });
     }
 

@@ -17,6 +17,7 @@ class GroupUser extends Migration
         Schema::create('group_user', function (Blueprint $table) {
         $table->increments('id');
         $table->foreignId('user_id');
+        
         $table->foreignId('group_id');
 
         });

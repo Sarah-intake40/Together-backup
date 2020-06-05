@@ -16,6 +16,7 @@ class AddPositionColumnInTasks extends Migration
         Schema::table('tasks', function (Blueprint $table) {
             //
             $table->integer('position')->default(100);
+            
         });
     }
 

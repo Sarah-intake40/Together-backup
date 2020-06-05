@@ -18,6 +18,7 @@ class CreateUserRequestsTable extends Migration
             $table->string('request_content')->default('this user asks to join this group');
             $table->foreignId('user_id');
             $table->foreignId('group_id');
+            
             $table->timestamps();
         });
     }

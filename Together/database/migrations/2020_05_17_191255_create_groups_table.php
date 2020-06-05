@@ -14,12 +14,13 @@ class CreateGroupsTable extends Migration
     public function up()
     {
         Schema::create('groups', function (Blueprint $table) {
-            
+
             $table->id();
             $table->string('photo')->nullable();
             $table->string('address')->nullable();
             $table->integer('max_member_number');
             $table->integer('duration');
+            
             $table->string('name')->unique();
             $table->string('description');
             $table->integer('current_number_of_members');

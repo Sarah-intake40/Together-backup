@@ -16,6 +16,7 @@ class AddPhotoColumnOfUsersBigString extends Migration
         //
         Schema::table('users', function (Blueprint $table) {
            $table->longText('photo')->nullable(); 
+           
         });    
     }
 

@@ -16,6 +16,7 @@ class EaddTaskDescriptionColumnInTasks extends Migration
         Schema::table('tasks', function (Blueprint $table) {
             //
             $table->string('description',255)->nullable();
+            
         });
     }
 

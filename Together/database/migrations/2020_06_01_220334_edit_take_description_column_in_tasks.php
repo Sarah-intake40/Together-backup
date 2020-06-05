@@ -16,6 +16,7 @@ class EditTakeDescriptionColumnInTasks extends Migration
         Schema::table('tasks', function (Blueprint $table) {
             //
             $table->dropColumn('description');
+            
         });
     }
 

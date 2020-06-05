@@ -16,6 +16,7 @@ class AddOtherToGroups extends Migration
         Schema::table('groups', function (Blueprint $table) {
             //
             $table->foreignId('interest_id')->nullable();
+            
         });
     }
 

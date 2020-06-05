@@ -16,6 +16,7 @@ class DropPhotoColumnOfGroupsTable extends Migration
         //
         Schema::table('groups', function (Blueprint $table) {
             $table->dropColumn('photo');
+            
         });
     }
 
