@@ -199,6 +199,7 @@ class UserController extends Controller
            foreach ($members as $member){
                if($member->id==$id){
                    $status ='Member of this group';
+                   return ['response'=>$status];
                }
                else {
                    $status = 'Not member';
@@ -210,10 +211,13 @@ class UserController extends Controller
            }
            $requests=$group->requests;
            foreach($requests as $request){
-               if($request->user_id==$id){
-                   $status ='This user waiting for admin of group to accept his request of join';
+               if($request->user_id == $id){
+                   $status =' , This user waiting for admin of group to accept his request of join';
+               }
+               else {
+                   $status=' ';
                }
            }
-           return ['response'=>$case .' and '.$status];
+           return ['response'=>$case .$status];
        }
 }
