@@ -26,4 +26,8 @@ class Group extends Model
     public function requests(){
         return $this->hasMany('App\UserRequest');
     }
+    //------------------------- this represent relation between group and messages
+    public function messages(){
+        return $this->hasMany('App\Message');
+    }
 }
