@@ -161,6 +161,18 @@ class GroupController extends Controller
         $request->save();
         return ['response'=>'Request sent successfully wait for admin to accept it'];
     }
-    
-      
+    //---------------------- this to get chat of certain group bervious messags
+    public function getChat($groupId){
+      $group=Group::find($groupId);
+      $allMessages=array();
+      $messages=$group->messages;
+      foreach($messages as $message){
+        $sender=$message->user;
+        $senderName=$sender->name;
+        $content=$message->content;
+        $record = ['sender'=>$senderName,'content'=>$content];
+        array_push($allMessages,$record);
+      }
+      return ['response'=>$allMessages];
+    }
 }
