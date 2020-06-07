@@ -76,7 +76,7 @@ Route::post('/updateTask/{id}','Api\TaskController@updateTask')->middleware('aut
 //------------------------ this route to move task to do list
 Route::get('/do/{id}','Api\TaskController@moveTodo')->middleware('auth:sanctum');
 //---------------------------- this to get old messages
-Rout::get('/getChat/{groupId}','Api\GroupController@getChat');
+Route::get('/getChat/{groupId}','Api\GroupController@getChat');
 //----------------------- this to get request of admin
 Route::get('/requestOfuser/{userId}','Api\GroupController@requestOfuser');
 //-------------------this to  changePosition tasks
