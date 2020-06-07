@@ -153,10 +153,12 @@ class GroupController extends Controller
       //--------------------- this to get user requests
       public function requestOfuser($userId){
         $user=User::find($userId);
-        $adminOf = arry();
+        if($user){
+        $adminOf = array();
         $groups=$user->groups;
+        return $groups;
         foreach($groups as $group){
-          if($group->admin_id==$userId){
+          if($group->admin_id == $userId){
              array_push($adminOf,$group);
           }
         }
@@ -164,8 +166,12 @@ class GroupController extends Controller
         foreach($adminOf as $groupAdmin){
           array_push($allRequests,$groupAdmin->requests);
         }
-        return $allRequests;
+        return ['response'=>$allRequests];
       }
+    else{
+      return ['response'=>'This user not exist'];
+    }
+  }
       //--------------------- this for user to send join request
       public function requestToJoin(Request $outRequest,$groupId,$id){
         $request = new UserRequest;
