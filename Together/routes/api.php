@@ -66,7 +66,7 @@ Route::get('/accept/{requestId}','Api\UserRequestController@accept')->middleware
 //------------------------- this to reject join request
 Route::get('/reject/{requestId}','Api\UserRequestController@reject')->middleware('auth:sanctum');
 //------------------------------- this route to view groups of certain user
-Route::get('/home/{id}','Api\UserController@home')->middleware('auth:sanctum');
+Route::get('/home/{id}','Api\UserController@home');//->middleware('auth:sanctum');
 //------------------------------ this route to update only interests
 Route::post('/updateInterests/{id}','Api\UserController@updateInterests')->middleware('auth:sanctum');
 //----------------------this route to delete certain task
@@ -75,6 +75,8 @@ Route::get('/deleteTask/{id}','Api\TaskController@deleteTask')->middleware('auth
 Route::post('/updateTask/{id}','Api\TaskController@updateTask')->middleware('auth:sanctum');
 //------------------------ this route to move task to do list
 Route::get('/do/{id}','Api\TaskController@moveTodo')->middleware('auth:sanctum');
+//---------------------------- this to get old messages
+Rout::get('/getChat/{groupId}','Api\GroupController@getChat');
 //-------------------this to  changePosition tasks
 //Route::post('/changePosition','Api\TaskController@changePosition')->middleware('auth:sanctum');
 //-------------------this to  changeProgressPosition tasks
