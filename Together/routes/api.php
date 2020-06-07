@@ -77,6 +77,8 @@ Route::post('/updateTask/{id}','Api\TaskController@updateTask')->middleware('aut
 Route::get('/do/{id}','Api\TaskController@moveTodo')->middleware('auth:sanctum');
 //---------------------------- this to get old messages
 Rout::get('/getChat/{groupId}','Api\GroupController@getChat');
+//----------------------- this to get request of admin
+Route::get('/requestOfuser/{userId}','Api\GroupController@requestOfuser');
 //-------------------this to  changePosition tasks
 //Route::post('/changePosition','Api\TaskController@changePosition')->middleware('auth:sanctum');
 //-------------------this to  changeProgressPosition tasks
