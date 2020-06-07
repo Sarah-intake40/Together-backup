@@ -150,6 +150,22 @@ class GroupController extends Controller
         $group=Group::find($groupId);
         return $group->requests;
       }
+      //--------------------- this to get user requests
+      public function requestOfuser($userId){
+        $user=User::find($userId);
+        $adminOf = arry();
+        $groups=$user->groups;
+        foreach($groups as $group){
+          if($group->admin_id==$userId){
+             array_push($adminOf,$group);
+          }
+        }
+        $allRequests=array();
+        foreach($adminOf as $groupAdmin){
+          array_push($allRequests,$groupAdmin->requests);
+        }
+        return $allRequests;
+      }
       //--------------------- this for user to send join request
       public function requestToJoin(Request $outRequest,$groupId,$id){
         $request = new UserRequest;
