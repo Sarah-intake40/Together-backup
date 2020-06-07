@@ -155,8 +155,23 @@ class UserController extends Controller
     //------------------- this to retrive all groups of certain user
     public function home($id){
         $user=User::where('id',$id)->first();
+        $groups=array();
         if($user){
-            return $user->groups;
+            $user_group=$user->groups;
+            foreach($user_groups as $group){
+                $obj=['group_id'=>$group->id,
+                      'address'=>$group->address,
+                       'max_member_number'=>$group->max_member_number,
+                       'name'=>$group->name,
+                       'description'=>$group->description,
+                       'current_number_of_members'=>$group->current_number_of_members,
+                       'status'=>$group->status,
+                       'level'=>$group->level,
+                       'interest_id'=>$group->interest_id,
+                        'id'=>$group->admin_id];
+                array_push($groups,$obj);
+            }
+            return $groups;
         }
         else{
             return ['response'=>'This user is not exist'];  
